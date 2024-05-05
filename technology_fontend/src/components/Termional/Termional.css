@@ -1,0 +1,123 @@
+.slideshow-container {
+    position: relative;
+    max-width: 50%;
+    margin: auto;
+    gap: 10rem;
+}
+
+
+.termional {
+    display: flex;
+    flex: 1;
+    gap: 10rem;
+}
+
+
+.termional-img {
+    border-bottom-right-radius: 4rem;
+    width: 25%;
+    height: 25%;
+}
+
+.termional-des {
+    width: 75%;
+    display: grid;
+    gap: 1rem;
+    text-align: left;
+}
+
+.quote-icon {
+    font-size: 3rem;
+    color: var(--main-color);
+}
+
+.bio1 {
+    font-size: 1.3rem;
+}
+
+.bio2 {
+    font-size: 1rem;
+}
+
+
+.termional-name {
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+.termional-post {
+    font-size: 1rem;
+}
+
+
+
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+
+}
+
+
+
+.dot.active {
+    background-color: #b01a1a;
+    /* Add other styling as needed */
+}
+
+
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+
+.dots-container {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .slideshow-container {
+        position: relative;
+        max-width: 90%;
+        padding: 2rem;
+    }
+
+    .termional-img {
+        border-bottom-right-radius: 4rem;
+        width: 25%;
+        height: 50%;
+    }
+
+}

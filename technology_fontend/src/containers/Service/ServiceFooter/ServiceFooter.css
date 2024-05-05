@@ -1,0 +1,40 @@
+.service-footer{
+     padding: 5rem 15rem 5rem 15rem;
+     background: var(--back-footer);
+     display: flex;
+     gap: 1.5rem;
+     justify-content: center
+}
+.service-footer-col{
+     width: 50%;
+     flex: 0 0 auto;
+     color: var(--color-bg);
+}
+.service-footer-col-title{
+     color: #d9d9d9;
+     text-transform: uppercase;
+     font-weight: 700;
+     display: inline-block;
+     margin-bottom: 1rem;
+}
+.service-footer-col-header{
+     font-weight: 700;
+     font-size: 2.5rem;
+     line-height: 56px;
+}
+.service-footer-col-desc{
+     margin: 1rem 0 0;
+     font-size: 1.3rem;
+     line-height: 28px;
+     letter-spacing: 0;
+}
+.service-footer-col img{
+     opacity: 1;
+     transform: none;
+     transform: translateY(50px);
+     height: 120%;
+     width: 100%;
+     margin-bottom: -12rem;
+     max-width: 100%;
+     display: block;
+}

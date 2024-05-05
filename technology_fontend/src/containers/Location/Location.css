@@ -1,0 +1,57 @@
+.location {
+     background-color: var(--bg-color);
+     padding: 1rem 10rem;
+}
+
+.location_title {
+     margin: 0 0 3rem;
+     font-weight: 900;
+     font-size: 3rem;
+     line-height: 56px;
+     padding-right: 40%;
+     letter-spacing: 0;
+}
+
+.location_title span {
+     color: var(--main-color);
+}
+
+/* Grid */
+.location_grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 30px;
+}
+
+.col_location {
+     background-color: #fff;
+     width: 300px;
+     margin: auto;
+     height: auto;
+}
+
+.col_location img {
+     opacity: 1;
+     transform: none;
+     position: relative;
+     display: block;
+     object-fit: cover;
+     max-width: 100%; 
+     height: auto; 
+}
+
+
+.post-card_location {
+     padding: 2rem;
+}
+
+.post-card_location h3 {
+     font-size: 1.18rem;
+     line-height: 32px;
+     letter-spacing: 0;
+}
+
+.post-card_location p {
+     font-size: 1rem;
+     line-height: 24px;
+}

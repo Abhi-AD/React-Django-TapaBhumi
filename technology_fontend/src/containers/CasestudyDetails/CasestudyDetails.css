@@ -1,0 +1,84 @@
+.casestudydetails-header {
+     padding-top: 4rem;
+     padding-left: 1rem;
+     padding-right: 1rem;
+     padding-bottom: 10rem;
+}
+
+.casestudydetails-top {
+     margin-left: 0;
+     margin-bottom: 1rem;
+     gap: 1rem;
+     text-transform: uppercase;
+     text-decoration: underline;
+     font-weight: bold;
+     color: var(--main-color);
+}
+
+.casestudydetails-header h1 {
+     margin-bottom: 1.25rem;
+     font-size: 4rem;
+     line-height: 58px;
+     letter-spacing: -3px;
+}
+
+.casestudeyheadercol {
+     width: 100%;
+}
+
+.casestudeyheader {
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+}
+
+.casestudeyheadercol-header {
+     font-weight: 400;
+     margin-top: 1rem;
+     font-size: 1.25rem;
+}
+
+.casestudeyheadercol-desc {
+     margin-top: 1.25rem;
+     font-size: 1rem;
+     line-height: 24px;
+}
+
+.casestudeyheadercol-footer {
+     display: flex;
+     align-items: center;
+     justify-content: left;
+     margin-bottom: 3rem;
+     margin-top: 3rem;
+}
+
+.casestudeyheadercol-footer img {
+     color: transparent;
+     height: 20px;
+     object-fit: contain;
+     max-width: 25%;
+     display: block;
+}
+
+.casestudeyheadercolimg {
+     height: 100%;
+     width: 100%;
+     color: transparent;
+     margin-bottom: 0;
+     border-bottom-right-radius: 7rem;
+}
+
+@media screen and (min-width: 768px) {
+     .casestudydetails-header {
+          padding-left: 18rem;
+          padding-right: 13rem;
+     }
+
+     .casestudeyheader {
+          flex-direction: row;
+     }
+
+     .casestudeyheadercol {
+          width: 50%;
+     }
+}

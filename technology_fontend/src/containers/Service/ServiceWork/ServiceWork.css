@@ -1,0 +1,112 @@
+.service-work {
+     background-color: var(--color-footer);
+     padding: 5rem 15rem 5rem 15rem;
+}
+
+.service-work-title {
+     max-width: 60rem;
+     margin: 0 auto 2.5rem;
+     text-align: center;
+     color: var(--color-bg);
+}
+
+.service-work-title-header {
+     font-size: 2.5rem;
+     font-weight: 700;
+     line-height: 50px;
+}
+
+.service-work-title-header span {
+     color: var(--main-color);
+}
+
+.service-work-title-desc {
+     margin: 1rem 0 0;
+     font-size: 1.3rem;
+     line-height: 28px;
+     letter-spacing: 0;
+}
+
+.servicework {
+     color: transparent;
+     width: 100%;
+     margin-bottom: 2.5rem;
+     max-width: 100%;
+     display: block;
+     margin-top: 4rem;
+}
+
+.service-work-innovation-row {
+     justify-content: center;
+     gap: 1.5rem;
+     display: flex;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+}
+
+.service-work-innovation-col {
+     margin-bottom: 1rem;
+     padding: 3rem;
+     height: 100%;
+     background-color: var(--bg-color);
+}
+
+.service-work-innovation-icon {
+     color: var(--color-footer);
+     height: 6rem;
+     width: 6rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 50%;
+     margin-bottom: 2rem;
+     background-color: var(--color-bg);
+}
+
+.service-work-innovation-col h3 {
+     color: var(--color-footer);
+     margin-top: 2rem;
+     font-weight: 700;
+     margin: 0.75rem 0;
+     font-size: 1.3rem;
+     line-height: 28px;
+     letter-spacing: 0;
+     text-align: left;
+}
+
+.service-work-innovation-col p {
+     text-align: left;
+     font-size: 1rem;
+     color: var(--color-footer);
+     line-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+     .service-work {
+          padding: 1rem;
+     }
+
+     .service-work-innovation-row {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+     }
+
+     .service-work-innovation-col {
+          padding: 2rem;
+     }
+
+     .service-work-innovation-icon {
+          height: 4rem;
+          width: 4rem;
+          margin-bottom: 1rem;
+     }
+
+     .service-work-title-header {
+          font-size: 2rem;
+     }
+
+     .service-work-title-desc {
+          font-size: 1rem;
+          margin: 1rem 0;
+     }
+}

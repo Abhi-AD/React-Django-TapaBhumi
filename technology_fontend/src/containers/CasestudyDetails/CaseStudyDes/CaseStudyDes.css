@@ -1,0 +1,126 @@
+.case-study-des {
+     padding: 5rem 30rem 5rem 30rem;
+     justify-content: center;
+     /* display: flex; */
+     gap: 1.5rem;
+}
+
+.case-study-des-title {
+     margin-bottom: 1rem;
+     font-size: 2rem;
+     line-height: 38px;
+}
+
+.case-study-des-desc {
+     margin-bottom: 1rem;
+     font-weight: 700;
+     font-size: 1rem;
+     line-height: 24px;
+}
+
+.case-study-des-desc1 {
+     margin-bottom: 1rem;
+     font-size: 1rem;
+     line-height: 24px;
+}
+
+
+.case-study-card {
+     background-color: var(--bg-color);
+     padding: 5rem 30rem 5rem 30rem;
+     justify-content: center;
+     display: grid;
+     flex-wrap: wrap;
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 30px;
+}
+
+.case-study-card-col {
+     background-color: var(--color-bg);
+}
+
+.case-study-card-col-card {
+     opacity: 1;
+     position: relative;
+     width: 100%;
+     object-fit: cover;
+     height: 100%;
+     display: block;
+}
+
+.case-study-card-info {
+     padding: 3rem;
+}
+
+.case-study-card-info-title {
+     font-size: 1.3rem;
+     line-height: 28px;
+     letter-spacing: 0;
+     margin-bottom: 0, 75rem;
+}
+
+.case-study-card-info-desc {
+     font-size: 1rem;
+     line-height: 18px;
+}
+
+
+/* footer */
+.case-study-footer {
+     background-color: var(--bg-color);
+     padding: 5rem 15rem 5rem 15rem;
+}
+
+.case-study-footer-row {
+     justify-content: center;
+     align-items: center;
+     display: flex;
+     gap: 1.5rem;
+}
+
+.case-study-footer-col {
+     width: 50%;
+}
+
+.case-study-footer-col img {
+     margin-bottom: 2rem;
+     display: block;
+     width: 100%;
+     height: auto;
+     border-top-left-radius: 8rem;
+}
+
+.case-study-footer-col-des1 {
+     margin: 1rem 0;
+     font-size: 1rem;
+     line-height: 20px;
+}
+
+.learMore {
+     margin-top: 1.5rem;
+     display: flex;
+     color: var(--main-color);
+     font-weight: bold;
+}
+
+
+/* For screen sizes up to 760px */
+@media only screen and (max-width: 760px) {
+     .case-study-des,
+     .case-study-card,
+     .case-study-footer {
+       padding: 2rem;
+     }
+   
+     .case-study-card {
+       grid-template-columns: repeat(1, 1fr);
+     }
+     .case-study-footer-row{
+          flex-direction: column;
+     }
+   
+     .case-study-footer-col {
+       width: 100%;
+     }
+   }

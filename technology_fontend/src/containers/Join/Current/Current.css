@@ -1,0 +1,228 @@
+.current {
+     padding: 1rem 15rem 5rem 15rem;
+
+     display: flex;
+     justify-content: flex-start;
+     gap: 1rem;
+}
+
+.current-left {
+     width: 65%;
+     flex: 0 0 auto;
+}
+
+.current-left-title {
+     margin-bottom: 2.5rem;
+}
+
+.current-left-title-header {
+     font-weight: 700;
+     font-size: 2.5rem;
+     line-height: 56px;
+}
+
+.current-left-title-header span {
+     color: var(--main-color);
+}
+
+.current-left-title-desc {
+     margin: 1rem 0 0;
+     font-size: 1.3rem;
+     line-height: 28px;
+}
+
+
+/* vacancy */
+.current-left-vaccancy-list {
+     border-bottom: 1px solid var(--back-color);
+     padding-bottom: 1.5rem;
+     margin-bottom: 1.5rem;
+     justify-content: space-between;
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+}
+
+.vaccancy-icon {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+     width: 4rem;
+     height: 4rem;
+     border-radius: 50%;
+     background-color: var(--bg-color);
+     color: var(--main-color);
+}
+
+.vaccancy__info {
+     flex: 1 1;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     justify-items: flex-start;
+
+}
+
+.vaccany-des h3 {
+     font-weight: 700;
+     color: var(--hover-color);
+}
+
+.vaccany-des p {
+     font-size: 1rem;
+     line-height: 20px;
+}
+
+.apply-now {
+     display: flex;
+     font-size: 0.9rem;
+     color: var(--main-color);
+     font-weight: 700;
+     text-transform: uppercase;
+     gap: 0.5rem;
+     align-items: center;
+     padding: 0.75rem 0.75rem 0.75rem 0;
+     justify-content: center;
+}
+
+
+
+/* current-right */
+.current-right {
+     flex: 0 0 auto;
+
+     width: 35%;
+     margin-top: 10rem;
+     position: sticky;
+     top: 5.5rem;
+     background-color: var(--bg-color);
+     padding: 3rem;
+}
+
+.current-right-title {
+     margin-bottom: 2.5rem;
+}
+
+.current-right-title h2 {
+     font-weight: 700;
+     font-size: 2rem;
+     line-height: 40px;
+}
+
+.current-right-title span {
+     color: var(--main-color);
+}
+
+.current-right-title p {
+     margin: 1rem 0 0;
+     font-size: 1.3rem;
+     line-height: 28px;
+     letter-spacing: 0;
+}
+
+.person-detail {
+     border-bottom: 1px solid var(--back-color);
+     padding-bottom: 1.5rem;
+     margin-bottom: 1.5rem;
+     display: flex;
+     gap: 1rem;
+}
+
+.person-detail img {
+     opacity: 1;
+     transform: none;
+     color: transparent;
+     height: 4rem;
+     width: 4rem;
+     border-radius: 50%;
+     object-fit: cover;
+     display: block;
+}
+
+.person-detail-des {
+     flex: 2 1;
+}
+
+.person-detail-des h3 {
+     font-weight: 600;
+     font-size: 1rem;
+     line-height: 18px;
+     text-transform: capitalize;
+}
+
+.person-detail-des p {
+     font-size: 0.8rem;
+     line-height: 16px;
+     text-transform: capitalize;
+}
+
+.person-social {
+     font-weight: 600;
+     display: flex;
+     text-transform: capitalize;
+     align-items: center;
+     gap: 0.5rem;
+     font-size: 0.8rem;
+     line-height: 16px;
+     letter-spacing: 0;
+     color: var(--hover-color);
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 768px) {
+     .current {
+          padding: 1rem 1.5rem 5rem 1.5rem;
+          flex-direction: column;
+          align-items: stretch;
+     }
+
+     .current-left,
+     .current-right {
+          width: 100%;
+          flex: none;
+          margin-top: 0;
+          padding: 1.5rem 0;
+     }
+     .vaccancy__info{
+          flex-direction: column;
+          align-items: stretch;
+     }
+
+     .current-right {
+          position: static;
+          top: auto;
+          background-color: transparent;
+          padding: 0;
+     }
+
+     .person-detail {
+          flex-direction: column;
+          gap: 1.5rem;
+     }
+
+     .person-detail img {
+          height: auto;
+          width: 25%;
+     }
+
+     .person-detail-des h3 {
+          font-size: 1.2rem;
+          line-height: 24px;
+     }
+
+     .person-detail-des p {
+          font-size: 1rem;
+          line-height: 20px;
+     }
+
+     .person-social {
+          font-size: 1rem;
+          line-height: 20px;
+     }
+
+     .current-left-vaccancy-list {
+          flex-direction: column;
+          gap: 1rem;
+     }
+}

@@ -1,0 +1,99 @@
+.cta_padding {
+     padding: 5% 15% 15% 15%;
+}
+
+.CTA {
+     width: 100%;
+     max-width: 960px;
+     padding: 0 19px;
+     font-family: var(--font-family);
+}
+
+.section-title {
+     max-width: 64rem;
+     margin: 0 auto 2.5rem;
+     text-align: center;
+     margin-bottom: 0 !important;
+}
+
+.section-title h2 {
+     font-weight: 700;
+     font-size: 2rem;
+     line-height: 40px;
+}
+
+.section_title_base {
+     color: var(--main-color);
+}
+
+.fs-lead {
+     font-size: 1.25rem;
+     line-height: 28px;
+     letter-spacing: 0;
+}
+
+.row {
+     justify-content: center;
+     display: flex;
+     flex-wrap: wrap;
+}
+
+.col {
+     padding: 3rem;
+     text-align: center;
+     flex: 1;
+     flex-direction: column;
+     align-items: center;
+     display: flex;
+}
+
+.desc {
+     font-size: 0.7rem;
+     line-height: 14px;
+     font-weight: 100;
+     padding-top: 10%;
+     padding-bottom: 10%;
+}
+
+img {
+     opacity: 1;
+     transition: none;
+     height: auto;
+     width: 100%;
+     display: block;
+}
+
+.button {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+}
+
+.button:hover {
+     color: var(--main-color);
+}
+
+.icon_text {
+     display: inline;
+     margin: 5px;
+     text-transform: uppercase;
+     font-size: 8px;
+}
+
+.fa {
+     height: 1rem;
+     width: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+     .row {
+          flex-direction: column;
+          /* Change to column layout */
+     }
+
+     .col {
+          padding: 1.5rem;
+          /* Adjusted padding for columns */
+     }
+}

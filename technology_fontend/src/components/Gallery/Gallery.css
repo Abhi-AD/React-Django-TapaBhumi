@@ -1,0 +1,68 @@
+.slider-container {
+     opacity: 1;
+     transform: none;
+     position: relative;
+     overflow: hidden;
+     width: 100%;
+     height: 500px;
+}
+
+.image-holder {
+     display: flex;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: auto;
+     height: 100%;
+     animation: slider 15s linear infinite;
+}
+
+.image-holder .people {
+     width: 20%;
+     height: 100%;
+     object-fit: cover;
+}
+.image-holder img{
+     width: 500px;
+}
+
+@keyframes slider {
+     0% {
+          transform: translateX(0);
+     }
+
+     100% {
+          transform: translateX(-100%);
+     }
+}
+
+
+@media screen and (max-width: 1920px) {
+     .image-holder .people {
+          width: 16%;
+     }
+}
+
+@media screen and (max-width: 1440px) {
+     .image-holder .people {
+          width: 25%;
+     }
+}
+
+@media screen and (max-width: 1024px) {
+     .image-holder .people {
+          width: 33.33%;
+     }
+}
+
+@media screen and (max-width: 768px) {
+     .image-holder .people {
+          width: 50%;
+     }
+}
+
+@media screen and (max-width: 576px) {
+     .image-holder .people {
+          width: 100%;
+     }
+}

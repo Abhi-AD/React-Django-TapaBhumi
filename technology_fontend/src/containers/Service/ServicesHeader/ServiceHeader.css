@@ -1,0 +1,96 @@
+.services-header {
+     padding: 1rem;
+     display: flex;
+     flex-direction: column;
+}
+
+.services-header-col {
+     width: 100%;
+     margin-bottom: 2rem;
+}
+
+.services-header-col-title {
+     text-transform: uppercase;
+     margin-bottom: 1.25rem;
+     font-size: 1rem;
+     line-height: 20px;
+     letter-spacing: 0;
+}
+
+.services-header-col-header {
+     font-weight: 700;
+     font-size: 2.5rem;
+     line-height: 1.2;
+     letter-spacing: -1px;
+     margin-bottom: 1rem;
+}
+
+.services-header-col-header span {
+     color: var(--main-color);
+}
+
+.services-header-col-des1 {
+     font-weight: 400;
+     margin-top: 1rem;
+     font-size: 1.1rem;
+     line-height: 1.5;
+}
+
+.services-header-col-des2 {
+     margin-top: 1rem;
+     font-size: 1rem;
+     line-height: 1.5;
+}
+
+.serviceheader {
+     opacity: 1;
+     margin-bottom: 0;
+     border-bottom-right-radius: 0;
+     width: 100%;
+     height: auto;
+}
+
+.case-card-button {
+     align-items: center;
+     display: flex;
+}
+
+.icon-text-container {
+     display: flex;
+     gap: 0.1rem;
+}
+
+.case-card-box {
+     display: flex;
+     padding: 0.5rem 1rem;
+     border-radius: 5px;
+     text-decoration: none;
+     transition: all 0.3s ease;
+}
+
+.case-card-box:hover {
+     background-color: var(--main-color);
+     color: white;
+}
+
+.case-card-box span {
+     margin-right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+     .services-header {
+          padding: 1rem 15rem 5rem 15rem;
+          flex-direction: row;
+          gap: 4rem;
+     }
+
+     .services-header-col {
+          width: 50%;
+          margin-bottom: 0;
+     }
+
+     .serviceheader {
+          border-bottom-right-radius: 8rem;
+          height: 100%;
+     }
+}
