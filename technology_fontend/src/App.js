@@ -5,6 +5,7 @@ import { Home, Services, Join, Blog, About, Contact, VisitCard } from './page/im
 import './App.css'
 
 import { ApplyForm, Casestudy, CasestudyDetails } from './containers/index'
+import CardDesign from './page/VisitCard/CardDesign'
 
 const App = () => {
      useEffect(() => {
@@ -53,6 +54,7 @@ const App = () => {
                     <Route path='/case-study-details' element={<CasestudyDetails />} />
                     <Route path='/visiting-card' element={<VisitCard />} />
                     <Route path='/apply-form' element={<ApplyForm />} />
+                    <Route path='/card' element={<CardDesign />} />
                </Routes>
                <Footer />
           </Router>

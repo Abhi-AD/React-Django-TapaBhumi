@@ -71,6 +71,14 @@
      gap: 1rem;
 }
 
+.visit-card-field-input-check {
+     display: flex;
+     flex-direction: row;
+     text-align: center;
+     gap: 1rem;
+     align-items: center;
+}
+
 .visit-card-field-input input {
      padding: 2px 30px 4px;
      margin-left: 0;
