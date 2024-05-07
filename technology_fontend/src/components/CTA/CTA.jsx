@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './CTA.css'
 import { FaArrowRight, FaFilePdf } from 'react-icons/fa';
-
-import design_discovery from '../../assests/img/design-discovery.png'
-import invincible_approach from '../../assests/img/invincible-approach.png'
-import devops from '../../assests/img/devops.png'
+import axios from 'axios';
 
 const CTA = () => {
+     const [books, setBooks] = useState([]);
+     useEffect(() => {
+          const fetchBlogs = async () => {
+               try {
+                    const responseAll = await axios.get('http://127.0.0.1:8000/api/visit/book/');
+                    setBooks(responseAll.data);
+               } catch (error) {
+                    console.error('Error fetching blogs:', error);
+               }
+          };
+
+          fetchBlogs();
+     }, []);
+
      return (
           <div className='section-panel cta_padding'>
                <div className="container CTA1">
@@ -17,28 +28,17 @@ const CTA = () => {
                               download our playbooks
                          </p>
                     </div>
-                    <div className="row">
-                         <div className="col js-scroll fade-in">
-                              <img src={design_discovery} alt="" />
-                              <p className='desc'>Guide to a bulletproof design sprint aligning the goals of clients and end-users.</p>
-                              <span className='button'>
-                                   <FaFilePdf className='fa' /><p className='icon_text'>Get the book</p><FaArrowRight className='fa' />
-                              </span>
-                         </div>
-                         <div className="col js-scroll fade-in">
-                              <img src={invincible_approach} alt="" />
-                              <p className="desc">The product development roadmap that enables companies small or large build defensible digital products.</p>
-                              <span className='button'>
-                                   <FaFilePdf className='fa' /><p className='icon_text'>Get the book</p><FaArrowRight className='fa' />
-                              </span>
-                         </div>
-                         <div className="col js-scroll fade-in">
-                              <img src={devops} alt="" />
-                              <p className="desc">Drills down the basics about what DevOps is and how you should be following a DevOps culture.</p>
-                              <span className='button'>
-                                   <FaFilePdf className='fa' /><p className='icon_text'>Get the book</p><FaArrowRight className='fa' />
-                              </span>
-                         </div>
+                    <div className="col_blog row">
+                         {books.map(books => (
+                              <div className="col">
+                                   <img src={books.image} alt={books.title} />
+                                   <p className='desc'>{books.title}</p>
+                                   <span className='button'>
+                                        <FaFilePdf className='fa' /><p className='icon_text'>Get the book</p><FaArrowRight className='fa' />
+                                   </span>
+                              </div>
+                         ))}
+
                     </div>
                </div>
           </div>

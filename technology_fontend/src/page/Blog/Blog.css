@@ -1,6 +1,6 @@
 .blog {
      margin-bottom: 5rem !important;
-     padding: 1rem 10rem 2rem 10rem ;
+     padding: 1rem 10rem 2rem 10rem;
 }
 
 
@@ -45,7 +45,6 @@
      position: relative;
      width: 100%;
      object-fit: cover;
-     height: 100%;
      display: block;
 }
 
@@ -96,6 +95,14 @@
      border-radius: 8px;
 
 }
+
+.card_blog img {
+     opacity: 1;
+     height: 10.75rem;
+     width: 100%;
+     object-fit: cover;
+}
+
 
 @media (max-width: 768px) {
      .blog {
