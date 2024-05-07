@@ -4,10 +4,12 @@ import { FaDownload } from "react-icons/fa";
 import QR from '../../assests/img/QR.png';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
+import QRCode from 'qrcode.react';
 
-const CardDesign = () => {
+const CardDesign = (props) => {
+  const { name,post, email, phone, website, address_line_1, address_line_2, qrData } = props?.formData
   const cardRef = useRef(null);
-
+  const defaultAddress = '1/2 Street, City, State, Country';
   const handleDownload = () => {
     html2canvas(cardRef.current).then(canvas => {
       canvas.toBlob(blob => {
@@ -16,30 +18,46 @@ const CardDesign = () => {
     });
   };
 
+
+
   return (
     <div>
       <div className="card" ref={cardRef}>
         <div className="front-side">
           <div className="info-grid">
             <div className="name">
-              <h2>Abhishek Dangi</h2>
-              <h5>Full Stack Developer</h5>
+              <h2>{name || 'Abhishek Dangi'}</h2>
+              <h5>{post || 'Full Stack Developer'}</h5>
             </div>
             <div className="addr">
-              <p>1/2 Street, <strong>City</strong>, State, <strong>Country</strong></p>
+              <p>
+                {address_line_2 ? (
+                  address_line_2
+                ) : (
+                  address_line_1 || defaultAddress
+                )}
+              </p>
+
+
             </div>
             <div className="phoneNo">
-              <p>+977 <strong>98</strong> 2294156</p>
+              <p>+977 {phone || '98 2294156'}</p>
             </div>
             <div className="emailId">
-              <p className="web"><strong>www</strong>.yourwebsite.<strong>com</strong></p>
-              <p className="email">dangiabhi332@gmail.com</p>
+              <p className="web">{website || 'www.yourwebsite.com'}</p>
+              <p className="email">{email || 'dangiabhi332@gmail.com'}</p>
             </div>
           </div>
         </div>
         <div className="back-side">
           <div className="name-tag">
-            <img src={QR} alt="QR Code" className="qrcode" />
+            {qrData ? (
+              <div className="qr-code">
+                <QRCode value={qrData} />
+              </div>
+            ) : (
+              <img src={QR} alt="QR Code" className="qrcode" />
+            )}
           </div>
         </div>
       </div>
