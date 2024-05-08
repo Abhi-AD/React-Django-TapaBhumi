@@ -32,7 +32,7 @@ const CTA = () => {
                          {books.map(books => (
                               <div className="col">
                                    <img src={books.image} alt={books.title} />
-                                   <p className='desc'>{books.title}</p>
+                                   <p className='desc'>{books.des1}</p>
                                    <span className='button'>
                                         <FaFilePdf className='fa' /><p className='icon_text'>Get the book</p><FaArrowRight className='fa' />
                                    </span>

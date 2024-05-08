@@ -6,8 +6,9 @@ from api import views
 router = routers.DefaultRouter()
 router.register(r'visit', views.VisitCardOrderView, 'visit')
 router.register(r'blog', views.BlogView, 'blog')
-router.register(r'bloglatest', views.BlogLatestView, 'bloglatest')
 router.register(r'book', views.BookView, 'book')
+router.register(r'category', views.CategoryView, 'category')
+router.register(r'tag', views.TagView, 'tag')
 
 urlpatterns = [
     path('visit/', include(router.urls)),

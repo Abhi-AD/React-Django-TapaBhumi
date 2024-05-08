@@ -1,7 +1,13 @@
 from rest_framework import viewsets
-from api.serializers import VisitCardOrderSerializer, BlogSerializer,BookSerializer
+from api.serializers import (
+    VisitCardOrderSerializer,
+    BlogSerializer,
+    TagSerializer,
+    CategorySerializer,
+    BookSerializer,
+)
 from app1_qrcode.models import VisitCardOrder
-from app2_data.models import Blog,Book
+from app2_data.models import Blog, Book, Tag, Category
 
 
 class VisitCardOrderView(viewsets.ModelViewSet):
@@ -11,13 +17,18 @@ class VisitCardOrderView(viewsets.ModelViewSet):
 
 class BlogView(viewsets.ModelViewSet):
     serializer_class = BlogSerializer
-    queryset = Blog.objects.all().order_by("-post_date")[2:]
+    queryset = Blog.objects.all().order_by("-post_date")
 
 
+class CategoryView(viewsets.ModelViewSet):
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
 
-class BlogLatestView(viewsets.ModelViewSet):
-    serializer_class = BlogSerializer
-    queryset = Blog.objects.all().order_by("-post_date")[:2]
+
+class TagView(viewsets.ModelViewSet):
+    serializer_class = TagSerializer
+    queryset = Tag.objects.all()
+
 
 class BookView(viewsets.ModelViewSet):
     serializer_class = BookSerializer

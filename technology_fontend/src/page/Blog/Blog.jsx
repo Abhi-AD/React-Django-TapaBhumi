@@ -4,26 +4,19 @@ import './Blog.css'
 import './AnimateOnScroll.css'
 import { Category } from '../../components/index'
 import { FaArrowRight } from 'react-icons/fa'
+import { dateFormate } from '../../utils/dateFormate';
 const Blog = () => {
   const [latestBlogs, setLatestBlogs] = useState([]);
   const [blogs, setBlogs] = useState([]);
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
+  const baseUrl = "http://127.0.0.1:8000"
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const responseLatest = await axios.get('http://127.0.0.1:8000/api/visit/bloglatest/');
-        setLatestBlogs(responseLatest.data);
-
-        const responseAll = await axios.get('http://127.0.0.1:8000/api/visit/blog/');
-        setBlogs(responseAll.data);
+        const responseAll = await axios.get(`${baseUrl}/api/visit/blog/`);
+        const filterData = responseAll.data.slice(2);
+        setBlogs(filterData);
+        const lastestRemainng = responseAll.data.slice(0, 2);
+        setLatestBlogs(lastestRemainng)
       } catch (error) {
         console.error('Error fetching blogs:', error);
       }
@@ -36,21 +29,24 @@ const Blog = () => {
       <Category />
       <div className="container_blog">
         <h1 className='title_blog'>Blog insights</h1>
-        <div className="row_blog">
-          {latestBlogs.map(blog => (
-            <div className="BlogHeader">
-              <img src={blog.image} alt="BlogHeader1" className=' js-scroll fade-in' />
-              <div className="post_card__infoys">
-                <div className="post_date"><span>{formatDate(blog.post_date)}</span></div>
-                <h2 className="blog_title">{blog.title}</h2>
-                <p className='blog_des'>{blog.description}</p>
-                <div className="read_more">
-                  <span style={{ paddingRight: '10px' }}>Read more</span>
-                  <FaArrowRight className='fa' />
+        <div className="row_blog ">
+          {latestBlogs.map(blog => {
+            return (
+              <div className="BlogHeader">
+                <img src={blog.image} alt="BlogHeader1" className=' js-scroll fade-in' />
+                <div className="post_card__infoys">
+                  <div className="post_date"><span>{dateFormate(blog.post_date)}</span></div>
+                  <h2 className="blog_title">{blog.title}</h2>
+                  <p className='blog_des'>{blog.description}</p>
+                  <p className='blog_des'>{blog.category.name}</p>
+                  <div className="read_more">
+                    <span style={{ paddingRight: '10px' }}>Read more</span>
+                    <FaArrowRight className='fa' />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
         <div className="col_blog">
           {blogs.map(blog => (
@@ -58,7 +54,7 @@ const Blog = () => {
               {/* animation_class"js-scroll fade-in" */}
               <img src={blog.image} alt="Blog1" className=' ' />
               <div className="post_card__infoys">
-                <div className="post_date"><span>{formatDate(blog.post_date)}</span></div>
+                <div className="post_date"><span>{dateFormate(blog.post_date)}</span></div>
                 <h2 className="blog_title">{blog.title}</h2>
                 <p className='blog_des'>{blog.description}</p>
                 <div className="read_more">

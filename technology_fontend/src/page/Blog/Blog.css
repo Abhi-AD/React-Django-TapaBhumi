@@ -56,11 +56,14 @@
      display: flex;
      gap: 1rem;
      margin-bottom: 0.5rem !important;
+
 }
 
 .post_date span {
      text-transform: uppercase;
      display: block;
+     font-size: 12px;
+     text-align: end;
 }
 
 .blog_title {
