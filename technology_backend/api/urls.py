@@ -9,6 +9,7 @@ router.register(r'blog', views.BlogView, 'blog')
 router.register(r'book', views.BookView, 'book')
 router.register(r'category', views.CategoryView, 'category')
 router.register(r'tag', views.TagView, 'tag')
+router.register(r'subscriber', views.SubscriberOrderView, 'subscriber')
 
 urlpatterns = [
     path('visit/', include(router.urls)),

@@ -7,7 +7,7 @@ from django.contrib.auth import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("api.urls")),
-    # path('api/', include('app1_qrcode.urls')),
+    path('user/', include('app3_user.urls')),
 ]
 
 if settings.DEBUG:

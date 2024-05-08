@@ -9,7 +9,9 @@ const CTA = () => {
           const fetchBlogs = async () => {
                try {
                     const responseAll = await axios.get('http://127.0.0.1:8000/api/visit/book/');
-                    setBooks(responseAll.data);
+                    // setBooks(responseAll.data);
+                    const filterData = responseAll.data.slice(0, 3);
+                    setBooks(filterData);
                } catch (error) {
                     console.error('Error fetching blogs:', error);
                }

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "api",  # api
     "app1_qrcode",  # qrcode
     "app2_data",  # data
+    "app3_user",  # user
 ]
 
 MIDDLEWARE = [
