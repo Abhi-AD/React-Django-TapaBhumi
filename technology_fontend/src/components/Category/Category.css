@@ -15,6 +15,7 @@
 .category-header_shadow {
      position: relative;
      overflow: auto;
+     width: 90%;
 }
 
 .category-header_main {
@@ -57,6 +58,7 @@
 
 /* search */
 .category-header_search {
+     
      width: 20%;
      border-left: 1px solid #d9d9d9;
      flex-direction: column;
@@ -75,7 +77,7 @@
 
 .category-header_search {
      display: flex;
-     align-items: center;
+     /* align-items: ; */
 }
 
 .button-search {

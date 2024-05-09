@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Current.css';
 import { MdBadge } from 'react-icons/md';
 import { FaArrowRight, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
-const vacancies = [
-    { title: 'Talent Acquisition Associate', location: 'Kathmandu, Nepal' },
-    { title: 'Senior Quality Assurance Engineer', location: 'Kathmandu, Nepal' },
-    { title: 'Senior Data Engineer', location: 'Kathmandu, Nepal' },
-    { title: 'Senior Engineer - VB.Net', location: 'Kathmandu, Nepal' },
-    { title: 'Senior Product Designer', location: 'Kathmandu, Nepal' },
-    { title: 'Talent Acquisition Associate', location: 'Kathmandu, Nepal' }
-];
-
-const recruiters = [
-    { name: 'kalpana gautam', role: 'CEO', image: 'https://img.freepik.com/free-photo/portrait-young-beautiful-hipster-girl-trendy-summer-sundress_158538-18256.jpg?t=st=1714040085~exp=1714043685~hmac=55cf7d95e3341a0088b64b77842cb421b49e2c319228c740b71144bea12e59b2&w=826' },
-    { name: 'Bibek  Debbarma', role: 'Project Manager', image: 'https://img.freepik.com/free-photo/cheerful-indian-businessman-smiling-closeup-portrait-jobs-career-campaign_53876-129417.jpg?t=st=1714041442~exp=1714045042~hmac=1076ccd399425df4bb6863a0a6f495a9265f11b66d09f33d2f2fa6bbb9102841&w=900' },
-    { name: 'Mohan Kumar  Yadav', role: 'Senior Developer', image: 'https://img.freepik.com/free-photo/guy-plaid-shirt_158595-126.jpg?t=st=1714041487~exp=1714045087~hmac=78f6925f6d0a4ac2e77c42b722f721c31be1ea99246f05be22a8479a8b1db872&w=740' }
-];
+import axios from 'axios';
 
 const Current = () => {
+    const [peoples, setPeoples] = useState([]);
+    const [jobvacancys, setJobVacancys] = useState([]);
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const peoplesAll = await axios.get('http://127.0.0.1:8000/api/visit/person/');
+                const jobvacancysAll = await axios.get('http://127.0.0.1:8000/api/visit/jobvacancy/');
+                const peoplesData = peoplesAll.data.slice(0,3);
+                const jobvacancysData = jobvacancysAll.data.slice(0,10);
+                setPeoples(peoplesData)
+                setJobVacancys(jobvacancysData)
+            } catch (error) {
+                console.error('Error fetching blogs:', error);
+            }
+        };
+
+        fetchBlogs();
+    }, []);
     return (
         <div className='current'>
             <div className="current-left">
@@ -28,13 +32,13 @@ const Current = () => {
                     <p className="current-left-title-desc">Do you think you are a good fit? Apply now. We would love to meet you.</p>
                 </div>
                 <div className="current-left-vaccancy">
-                    {vacancies.map((vacancy, index) => (
-                        <div className="current-left-vaccancy-list" key={index}>
+                    {jobvacancys.map(jobvacancy => (
+                        <div key={jobvacancy.id} className="current-left-vaccancy-list">
                             <MdBadge className='vaccancy-icon' />
                             <div className="vaccancy__info">
                                 <div className="vaccany-des">
-                                    <h3>{vacancy.title}</h3>
-                                    <p>{vacancy.location}</p>
+                                    <h3>{jobvacancy.vacancy_title}</h3>
+                                    <p>{jobvacancy.location}</p>
                                 </div>
                                 <Link className='apply-now' to={`/apply-form`}>
                                     <span>apply now</span>
@@ -50,16 +54,16 @@ const Current = () => {
                     <h2>Want to <span>talk in-person?</span></h2>
                     <p>Get in touch with one of our recruitment  leads to discuss further.</p>
                 </div>
-                {recruiters.map((recruiter, index) => (
-                    <div className="person-detail" key={index}>
-                        <img src={recruiter.image} alt="img" />
+                {peoples.map(people => (
+                    <div className="person-detail">
+                        <img src={people.image} alt="img" />
                         <div className="person-detail-des">
-                            <h3>{recruiter.name}</h3>
-                            <p>{recruiter.role}</p>
-                            <div className="person-social">
+                            <h3>{people.name}</h3>
+                            <p>{people.post}</p>
+                            <Link className="person-social" to={`${people.url}`}>
                                 <FaLinkedin />
                                 connect on Linkedin
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 ))}

@@ -38,7 +38,7 @@ const Blog = () => {
                   <div className="post_date"><span>{dateFormate(blog.post_date)}</span></div>
                   <h2 className="blog_title">{blog.title}</h2>
                   <p className='blog_des'>{blog.description}</p>
-                  <p className='blog_des'>{blog.category.name}</p>
+                  <p className='blog_des'>Category:{blog?.category?.name}</p>
                   <div className="read_more">
                     <span style={{ paddingRight: '10px' }}>Read more</span>
                     <FaArrowRight className='fa' />

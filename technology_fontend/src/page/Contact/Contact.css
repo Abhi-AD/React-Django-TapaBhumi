@@ -158,32 +158,50 @@
   width: 100%;
   text-align: left;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   padding: 1rem;
   cursor: pointer;
   margin-bottom: 1rem;
-  background-color: transparent;
   border: 1px solid #d9d9d9;
   color: #111;
+  background-color: #fff;
+  /* Default background color */
+}
+
+.button__radio-content {
+  flex-grow: 1;
 }
 
 .button__icon {
   margin-right: 0.75rem;
-  color: black;
-  max-width: 100%;
-  display: block;
+  width: 30px;
+  height: 30px;
 }
 
-.button__radio-content label {
+.button__radio input[type="radio"] {
+  display: none;
+  /* Hide the actual radio buttons */
+}
+
+.button__radio input[type="radio"]:checked+label {
+  color: var(--main-color-light)
+}
+
+.button__radio label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.button__radio-content span {
   font-size: 1rem;
-  font-weight: 100;
-  line-height: 150%;
+  font-weight: bold;
 }
 
 .button__radio-content p {
   font-size: 0.8rem;
-  line-height: 20px;
+  line-height: 1.4;
 }
 
 .multiSelectorCheckbox {
@@ -194,15 +212,15 @@
 }
 
 .multiSelectCheckbox__label {
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   border: 1px solid #d9d9d9;
   border-radius: 2rem;
-  font-size: 0.8rem;
+  font-size: 1px;
   cursor: pointer;
   display: flex;
   margin-bottom: 0.25rem;
   transition: all 0.3s ease;
-  flex-basis: 20%;
+  flex-basis: 25%;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -210,6 +228,13 @@
 .multiSelectCheckbox__label input {
   display: none;
 }
+
+.multiSelectCheckbox__label input[type="checkbox"]:checked+.checkbox {
+  color: var(--main-color-light)
+}
+
+
+
 
 .number {
   display: flex;

@@ -4,7 +4,7 @@ import { Navbar, Footer, ScrollToTopButton } from './components/index'
 import { Home, Services, Join, Blog, About, Contact, VisitCard } from './page/imports'
 import './App.css'
 
-import { ApplyForm, Casestudy, CasestudyDetails } from './containers/index'
+import { ApplyForm, Casestudy, CasestudyDetails, Current } from './containers/index'
 import CardDesign from './page/VisitCard/CardDesign'
 
 const App = () => {
@@ -55,6 +55,7 @@ const App = () => {
                     <Route path='/visiting-card' element={<VisitCard />} />
                     <Route path='/apply-form' element={<ApplyForm />} />
                     <Route path='/card' element={<CardDesign />} />
+                    <Route path='/job' element={<Current />} />
                </Routes>
                <Footer />
           </Router>

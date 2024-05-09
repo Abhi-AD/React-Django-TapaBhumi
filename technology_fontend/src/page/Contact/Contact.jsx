@@ -1,15 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Contact.css'
 import Location from '../../containers/Location/Location'
 import contact from '../../assests/img/contact.png'
-import { FaArrowRight, FaTeamspeak, FaUserFriends } from 'react-icons/fa'
-import { AiOutlineTeam } from "react-icons/ai";
+import { FaArrowRight } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import axios from 'axios';
+
 const Contact = () => {
   const [selectedCountry, setSelectedCountry] = useState('volvo');
 
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
   };
+  const [services, setServices] = useState([]);
+  const [engagementchoices, setEngagementChoices] = useState([]);
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const serviceAll = await axios.get('http://127.0.0.1:8000/api/visit/service/');
+        const engagementchoicesAll = await axios.get('http://127.0.0.1:8000/api/visit/engagementchoice/');
+        const serviceData = serviceAll.data.slice(0, 4);
+        const engagementchoicesData = engagementchoicesAll.data.slice(0, 4);
+        setServices(serviceData)
+        setEngagementChoices(engagementchoicesData)
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
   return (
     <div>
       <div className="contact">
@@ -26,18 +46,18 @@ const Contact = () => {
             <div className="vacancy">
               <h2 className='vacancy_title'>Looking for a job?</h2>
               <p className="vacancy_desc">There is always an exciting position open that you can apply right away. Don't worry even if there's not something that suits you imme</p>
-              <div className="apply_now">
+              <Link className="apply_now" to={'/job'}>
                 <span style={{ paddingRight: '10px' }}>apply now</span>
                 <FaArrowRight className='fa' />
-              </div>
+              </Link>
             </div>
             <div className="vacancy">
               <h2 className='vacancy_title'>Get an internship</h2>
               <p className="vacancy_desc">Check out our internship page and ways to get in touch if you’re looking to get an internship at Leapfrog.</p>
-              <div className="apply_now">
+              <Link className="apply_now" to={'/job'}>
                 <span style={{ paddingRight: '10px' }}>become an intern</span>
                 <FaArrowRight className='fa' />
-              </div>
+              </Link>
             </div>
           </div>
           <div className="contact_form-right">
@@ -61,54 +81,38 @@ const Contact = () => {
               <div className="form__group">
                 <label>How do you want to work with us?</label>
                 <p>We have more than one ways to engage.</p>
-                <button className="button__radio" type='button'>
-                  <AiOutlineTeam className='button__icon' size={30} />
-                  <div className="button__radio-content">
-                    <label>Augment my existing team</label>
-                    <p>Expand capacity and boost efficiency for success!</p>
-                  </div>
-                </button>
-                <button className="button__radio" type='button'>
-                  <FaUserFriends className='button__icon' size={30} />
-                  <div className="button__radio-content">
-                    <label>I have a new project</label>
-                    <p>Turn ideas into reality with our project prowess</p>
-                  </div>
-                </button>
-                <button className="button__radio" type='button'>
-                  <FaTeamspeak className='button__icon' size={30} />
-                  <div className="button__radio-content">
-                    <label>I want a dedicated team for my project</label>
-                    <p>Your goal for excellence is our team's focus</p>
-                  </div>
-                </button>
+                {engagementchoices.map(engagementchoice => (
+                  <button className="button__radio" type="button">
+                    <input
+                      type="radio"
+                      name="relocate"
+                      value="augment"
+                      className="contact_radio"
+                      id={engagementchoice.id}
+                    />
+                    <label htmlFor={engagementchoice.id}>
+                      <img src={engagementchoice.image} alt={engagementchoice.name} className="button__icon" />
+                      <div className="button__radio-content">
+                        <span>{engagementchoice.name}</span>
+                        <p>{engagementchoice.description}</p>
+                      </div>
+                    </label>
+                  </button>
+                ))}
+
               </div>
               <div className="form__group">
                 <label>What service do you require?</label>
                 <p>Select all services you may need.</p>
                 <div className="multiSelectorCheckbox">
-                  <label className="multiSelectCheckbox__label">
-                    <input type='checkbox' />
-                    Full-Stack Team
-                  </label>
-                  <label className="multiSelectCheckbox__label">
-                    <input type='checkbox' />
-                    Product Design
-                  </label>
-                  <label className="multiSelectCheckbox__label">
-                    <input type='checkbox' />
-                    Data/ML/AI
-                  </label>
-                  <label className="multiSelectCheckbox__label">
-                    <input type='checkbox' />
-                    Mobile Development
-                  </label>
-                  <label className="multiSelectCheckbox__label">
-                    <input type='checkbox' />
-                    Other
-                  </label>
-
+                  {services.map(service => (
+                    <label className="multiSelectCheckbox__label">
+                      <input type='checkbox' />
+                      <p className='checkbox'>{service.name}</p>
+                    </label>
+                  ))}
                 </div>
+
               </div>
               <div className="form__group">
                 <label>What is your phone number?</label>

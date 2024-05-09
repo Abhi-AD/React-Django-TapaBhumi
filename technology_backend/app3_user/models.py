@@ -19,9 +19,14 @@ class Service(models.Model):
 class EngagementChoice(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
+    image = models.ImageField(upload_to="engagement_images/%Y/%m/%d")
+    
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        ordering = ["name"]
 
 
 class ContactFormSubmission(models.Model):

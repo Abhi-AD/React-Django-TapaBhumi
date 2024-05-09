@@ -40,10 +40,14 @@ a {
 }
 
 ::-webkit-scrollbar {
-     height: 5px;              /* height of horizontal scrollbar ← You're missing this */
-     width: 0px;               /* width of vertical scrollbar */
+     height: 5px;             
+     width: 5px;              
      background-color: var(--main-color);
    }
+::-webkit-scrollbar-thumb{
+     border-radius: 10rem;
+     background: linear-gradient(to right, var(--back-footer), var(--color-subtext))
+}
 
 
 .scale-up-center {

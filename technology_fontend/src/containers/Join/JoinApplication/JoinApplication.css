@@ -1,124 +1,128 @@
 /* General styling */
+.stepicon {
+  width: 3rem;
+  height: 3rem;
+}
+
 .job-application {
-     padding: 1rem 15rem 5rem 15rem;
-     background: var(--bg-color);
-   }
-   
-   .job-application-title {
-     max-width: 60rem;
-     margin: 0 auto 2.5rem;
-     text-align: center;
-   }
-   
-   .job-application-title-header {
-     font-weight: 700;
-     font-size: 2.5rem;
-     line-height: 56px;
-   }
-   
-   .job-application-title-header span {
-     color: var(--main-color);
-   }
-   
-   .job-application-title-des {
-     margin: 1rem 0 0;
-     font-size: 1.3rem;
-     line-height: 28px;
-     letter-spacing: 0;
-   }
-   
-   .job-application-row {
-     justify-content: center;
-     gap: 1.5rem;
-     display: flex;
-     flex-wrap: wrap;
-     flex: 0 0 auto;
-     flex-direction: column;
-     gap: 2rem;
-   }
-   
-   .job-application-col {
-     flex-direction: row;
-     border-bottom: 1px solid var(--back-color);
-     padding-bottom: 2rem;
-     display: flex;
-     gap: 2rem;
-   }
-   
-   .job-application-icon {
-     height: 6rem;
-     width: 6rem;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     border-radius: 50%;
-     margin-bottom: 2rem;
-     background-color: var(--back-footer);
-   }
-   
-   .job-application-col-col {
-     flex: 2 1;
-   }
-   
-   .job-application-col-col-num {
-     display: flex;
-     flex-direction: row;
-     font-size: 1.3rem;
-     gap: 0.75rem;
-     margin-bottom: 0.75rem;
-   }
-   
-   .job-application-col-col-num h3 {
-     line-height: normal;
-     border-left: 1px solid var(--back-color);
-     padding-left: 0.75rem;
-     flex: 2 1;
-     font-size: 1.3rem;
-     font-weight: 700;
-   }
-   
-   .job-application-col-col-des {
-     display: flex;
-     flex-direction: row;
-     gap: 3rem;
-     flex: 1 1;
-     font-size: 1rem;
-     line-height: 24px;
-   }
-   
-   /* Responsive adjustments for screens smaller than 768px */
-   @media (max-width: 767px) {
-     .job-application {
-       padding: 1rem 1.5rem 5rem 1.5rem;
-     }
-   
-     .job-application-title {
-       max-width: calc(100% - 3rem);
-       margin-bottom: 1.5rem;
-     }
-   
-     .job-application-row {
-       gap: 1rem;
-     }
-   
-     .job-application-col {
-       flex-direction: column;
-       border-bottom: none;
-       padding-bottom: 1rem;
-     }
-   
-     .job-application-icon {
-       margin-bottom: 1rem;
-     }
-   
-     .job-application-col-col-num h3 {
-       border-left: none;
-       padding-left: 0;
-       margin-bottom: 0.5rem;
-     }
-   
-     .job-application-col-col-des {
-       gap: 1rem;
-     }
-   }
-   
+  padding: 1rem 15rem 5rem 15rem;
+  background: var(--bg-color);
+}
+
+.job-application-title {
+  max-width: 60rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.job-application-title-header {
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 56px;
+}
+
+.job-application-title-header span {
+  color: var(--main-color);
+}
+
+.job-application-title-des {
+  margin: 1rem 0 0;
+  font-size: 1.3rem;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+
+.job-application-row {
+  justify-content: center;
+  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.job-application-col {
+  flex-direction: row;
+  border-bottom: 1px solid var(--back-color);
+  padding-bottom: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.job-application-icon {
+  height: 6rem;
+  width: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  background-color: var(--back-footer);
+}
+
+.job-application-col-col {
+  flex: 2 1;
+}
+
+.job-application-col-col-num {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.3rem;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.job-application-col-col-num h3 {
+  line-height: normal;
+  border-left: 1px solid var(--back-color);
+  padding-left: 0.75rem;
+  flex: 2 1;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.job-application-col-col-des {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  flex: 1 1;
+  font-size: 1rem;
+  line-height: 24px;
+}
+
+/* Responsive adjustments for screens smaller than 768px */
+@media (max-width: 767px) {
+  .job-application {
+    padding: 1rem 1.5rem 5rem 1.5rem;
+  }
+
+  .job-application-title {
+    max-width: calc(100% - 3rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .job-application-row {
+    gap: 1rem;
+  }
+
+  .job-application-col {
+    flex-direction: column;
+    border-bottom: none;
+    padding-bottom: 1rem;
+  }
+
+  .job-application-icon {
+    margin-bottom: 1rem;
+  }
+
+  .job-application-col-col-num h3 {
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .job-application-col-col-des {
+    gap: 1rem;
+  }
+}
