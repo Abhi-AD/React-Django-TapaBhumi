@@ -32,7 +32,7 @@ const People = () => {
                               <div className="team__infos">
                                    <h3>{people.name} </h3>
                                    <span>{people.post} </span>
-                                   <p>{people.blog.substring(0, 200)+'....'}</p>
+                                   <p>{people.blog.slice(0, 200)+'....'}</p>
                                    <Link className='profile-link' to={`${people.url }`}>
                                         <FaLinkedin />
                                         <span>Linkedin</span>

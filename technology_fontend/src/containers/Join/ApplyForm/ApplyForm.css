@@ -35,6 +35,15 @@
      line-height: 28px;
 }
 
+.job_footer {
+     margin-left: -30%;
+     font-weight: 400;
+     text-transform: none;
+     font-size: 20px;
+     line-height: 18px;
+     display: flex;
+     gap: 1rem;
+}
 
 
 

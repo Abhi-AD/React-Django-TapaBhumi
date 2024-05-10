@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status,generics
 from rest_framework.response import Response
 
 from api.serializers import (
@@ -82,10 +82,10 @@ class JobVacancyView(viewsets.ModelViewSet):
     queryset = JobVacancy.objects.all().order_by("-post_date")
 
 
-class JobVacancyDetailView(viewsets.GenericViewSet):
-    queryset = JobVacancy.objects.all()
-    serializer_class = JobVacancySerializer
-    lookup_field = "id"
+
+
+
+
 
 
 class ServiceView(viewsets.ModelViewSet):

@@ -5,6 +5,7 @@ import './AnimateOnScroll.css'
 import { Category } from '../../components/index'
 import { FaArrowRight } from 'react-icons/fa'
 import { dateFormate } from '../../utils/dateFormate';
+import { Link } from 'react-router-dom';
 const Blog = () => {
   const [latestBlogs, setLatestBlogs] = useState([]);
   const [blogs, setBlogs] = useState([]);
@@ -30,23 +31,21 @@ const Blog = () => {
       <div className="container_blog">
         <h1 className='title_blog'>Blog insights</h1>
         <div className="row_blog ">
-          {latestBlogs.map(blog => {
-            return (
-              <div className="BlogHeader">
-                <img src={blog.image} alt="BlogHeader1" className=' js-scroll fade-in' />
-                <div className="post_card__infoys">
-                  <div className="post_date"><span>{dateFormate(blog.post_date)}</span></div>
-                  <h2 className="blog_title">{blog.title}</h2>
-                  <p className='blog_des'>{blog.description}</p>
-                  <p className='blog_des'>Category:{blog?.category?.name}</p>
-                  <div className="read_more">
-                    <span style={{ paddingRight: '10px' }}>Read more</span>
-                    <FaArrowRight className='fa' />
-                  </div>
-                </div>
+          {latestBlogs.map(blog => (
+            <div className="BlogHeader" key={blog.id}>
+              <img src={blog.image} alt="BlogHeader" className='js-scroll fade-in' />
+              <div className="post_card__infoys">
+                <div className="post_date"><span>{dateFormate(blog.post_date)}</span></div>
+                <h2 className="blog_title">{blog.title}</h2>
+                <p className='blog_des'>{blog.bio.slice(0, 150)+'....'}</p>
+                <p className='blog_des'>Category: {blog.category?.name}</p>
+                <Link className="read_more" to={`/blog/${blog.id}`}>
+                  <span style={{ paddingRight: '10px' }}>Read more</span>
+                  <FaArrowRight className='fa' />
+                </Link>
               </div>
-            )
-          })}
+            </div>
+          ))}
         </div>
         <div className="col_blog">
           {blogs.map(blog => (
@@ -56,11 +55,11 @@ const Blog = () => {
               <div className="post_card__infoys">
                 <div className="post_date"><span>{dateFormate(blog.post_date)}</span></div>
                 <h2 className="blog_title">{blog.title}</h2>
-                <p className='blog_des'>{blog.description}</p>
-                <div className="read_more">
+                <p className='blog_des'>{blog.bio.slice(0, 150)+'....'}</p>
+                <Link className="read_more" to={`/blog/${blog.id}`}>
                   <span style={{ paddingRight: '10px' }}>Read more</span>
                   <FaArrowRight className='fa' />
-                </div>
+                </Link>
               </div>
             </div>
           ))}

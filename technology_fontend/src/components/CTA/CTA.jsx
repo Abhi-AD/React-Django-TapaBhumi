@@ -30,7 +30,7 @@ const CTA = () => {
                               download our playbooks
                          </p>
                     </div>
-                    <div className="col_blog row">
+                    <div className="col_blog row js-scroll fade-in">
                          {books.map(books => (
                               <div className="col">
                                    <img src={books.image} alt={books.title} />

@@ -33,7 +33,7 @@ const JoinApplication = () => {
                 <span>Step {step.num}</span>
                 <h3>{step.title}</h3>
               </div>
-              <p className="job-application-col-col-des">{step.description.substring(0, 150)+'....'}</p>
+              <p className="job-application-col-col-des">{step.description.slice(0, 150)+'....'}</p>
             </div>
           </div>
         ))}

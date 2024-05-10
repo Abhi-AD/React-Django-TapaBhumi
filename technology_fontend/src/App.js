@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { Navbar, Footer, ScrollToTopButton } from './components/index'
-import { Home, Services, Join, Blog, About, Contact, VisitCard } from './page/imports'
+import { Home, Services, Join, Blog, About, Contact, VisitCard, BlogDetails } from './page/imports'
 import './App.css'
 
 import { ApplyForm, Casestudy, CasestudyDetails, Current } from './containers/index'
@@ -48,12 +48,13 @@ const App = () => {
                     <Route path='/service' element={<Services />} />
                     <Route path='/join' element={<Join />} />
                     <Route path='/blog' element={<Blog />} />
+                    <Route path='/blog/:id' element={<BlogDetails />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/case-study' element={<Casestudy />} />
                     <Route path='/case-study-details' element={<CasestudyDetails />} />
                     <Route path='/visiting-card' element={<VisitCard />} />
-                    <Route path='/apply-form' element={<ApplyForm />} />
+                    <Route path='/apply-form/:id' element={<ApplyForm />} />
                     <Route path='/card' element={<CardDesign />} />
                     <Route path='/job' element={<Current />} />
                </Routes>

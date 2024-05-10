@@ -40,7 +40,7 @@ const Current = () => {
                                     <h3>{jobvacancy.vacancy_title}</h3>
                                     <p>{jobvacancy.location}</p>
                                 </div>
-                                <Link className='apply-now' to={`/apply-form`}>
+                                <Link className='apply-now' to={`/apply-form/${jobvacancy.id}`}>
                                     <span>apply now</span>
                                     <FaArrowRight />
                                 </Link>

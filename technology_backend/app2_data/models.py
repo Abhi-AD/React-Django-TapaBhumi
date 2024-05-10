@@ -20,6 +20,7 @@ class Tag(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
+    bio = models.CharField(max_length=255)
     description = models.TextField()
     post_date = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to="blog_images/%Y/%m/%d")
@@ -54,6 +55,7 @@ class Person(models.Model):
     image = models.ImageField(upload_to="people_images/%Y/%m/%d")
     post = models.CharField(max_length=25)
     post_date = models.DateTimeField(default=timezone.now)
+    bio = models.CharField(max_length=255)
     blog = models.TextField()
     url = models.URLField(unique=True, validators=[validate_linkedin_url])
 

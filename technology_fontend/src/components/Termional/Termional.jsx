@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Termional.css'; // Import your CSS file
-import { person1, person2 } from './import';
 import { RiDoubleQuotesR } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Termional = () => {
@@ -39,29 +40,34 @@ const Termional = () => {
             return newIndex;
         });
     };
+    const [persons, setPeoples] = useState([]);
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const responseAll = await axios.get('http://127.0.0.1:8000/api/visit/person/');
+                setPeoples(responseAll.data.slice(0, 2))
+            } catch (error) {
+                console.error('Error fetching blogs:', error);
+            }
+        };
+
+        fetchBlogs();
+    }, []);
 
     return (
         <div className="slideshow-container">
-            <div className="termional fade">
-                <img src={person1} alt="person1" className='termional-img js-scroll fade-in' />
-                <div className="termional-des">
-                    <RiDoubleQuotesR className='quote-icon' />
-                    <p className="bio1">Become an advocate for biotechnology and help shape policy that promotes innovation! Contact policymakers directly through BIO’s easy-to-use tool and have your voice heard.</p>
-                    <p className="bio2">Over 40K subscribers worldwide can’t be wrong. Good Day BIO is the top resource for biotech industry news—and the only daily newsletter at the intersection of biotech, politics, and policy. (And, it’s free!) </p>
-                    <h1 className='termional-name'>Shane Warne</h1>
-                    <p className='termional-post'>Co-founder</p>
+            {persons.map((person, index) => (
+                <div key={index} className={`termional fade ${index === slideIndex ? 'active' : ''}`}>
+                    <img src={person.image} alt={`person${index + 1}`} className='termional-img' />
+                    <div className="termional-des">
+                        <RiDoubleQuotesR className='quote-icon' />
+                        <p className="bio1">{person.bio.slice(0, 150) + '....'}</p>
+                        <p className="bio2">{person.blog.slice(0, 250) + '....'}</p>
+                        <Link className='termional-name' to={`${person.url}`}>{person.name}</Link>
+                        <p className='termional-post'>{person.post}</p>
+                    </div>
                 </div>
-            </div>
-            <div className="termional fade">
-                <img src={person2} alt="person2" className='termional-img js-scroll fade-in' />
-                <div className="termional-des">
-                    <RiDoubleQuotesR className='quote-icon' />
-                    <p className="bio1">Become an advocate for biotechnology and help shape policy that promotes innovation! Contact policymakers directly through BIO’s easy-to-use tool and have your voice heard.</p>
-                    <p className="bio2">Over 40K subscribers worldwide can’t be wrong. Good Day BIO is the top resource for biotech industry news—and the only daily newsletter at the intersection of biotech, politics, and policy. (And, it’s free!) </p>
-                    <h1 className='termional-name'>Shane Warne</h1>
-                    <p className='termional-post'>Co-founder</p>
-                </div>
-            </div>
+            ))}
             <br />
             <div className='dots-container'>
                 <span className="dot"></span>
