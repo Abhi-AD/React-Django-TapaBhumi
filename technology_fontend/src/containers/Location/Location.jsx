@@ -21,8 +21,8 @@ const Location = () => {
           <div className='location'>
                <h2 className='location_title'>We're happy to <span>chat in person</span> if you're close to one of our <span>office locations.</span></h2>
                <div className="location_grid">
-                    {locations.map(location => (
-                         <div className="col_location">
+                    {locations.map((location,index) => (
+                         <div className="col_location" key={index}>
                               <img src={location.image} alt="Seattle" />
                               <div className="post-card_location">
                                    <h3>{location.name}</h3>

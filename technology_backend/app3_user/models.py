@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
-
+from app2_data.models import Job_Vacancy
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class Subscriber(models.Model):
     email = models.EmailField(unique=True)
@@ -60,3 +62,5 @@ class ContactFormSubmission(models.Model):
 
     class Meta:
         ordering = ["-post_date"]
+
+

@@ -8,7 +8,8 @@ from app2_data.models import (
     Person,
     Location,
     JobApplicationStep,
-    JobVacancy,
+    Job_Vacancy,
+    CaseStudy,
 )
 
 
@@ -20,4 +21,5 @@ admin.site.register(Question)
 admin.site.register(Person)
 admin.site.register(Location)
 admin.site.register(JobApplicationStep)
-admin.site.register(JobVacancy)
+admin.site.register(Job_Vacancy)
+admin.site.register(CaseStudy)

@@ -8,7 +8,8 @@ from app2_data.models import (
     Person,
     Location,
     JobApplicationStep,
-    JobVacancy,
+    Job_Vacancy,
+    CaseStudy,
 )
 from app3_user.models import (
     Subscriber,
@@ -72,15 +73,15 @@ class JobApplicationStepSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class JobVacancySerializer(serializers.ModelSerializer):
+class Job_VacancySerializer(serializers.ModelSerializer):
     class Meta:
-        model = JobVacancy
+        model = Job_Vacancy
         fields = "__all__"
 
 
-class JobVacancySerializer(serializers.ModelSerializer):
+class Job_VacancySerializer(serializers.ModelSerializer):
     class Meta:
-        model = JobVacancy
+        model = Job_Vacancy
         fields = "__all__"
 
 
@@ -105,4 +106,9 @@ class EngagementChoiceSerializer(serializers.ModelSerializer):
 class ContactFormSubmissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactFormSubmission
+        fields = "__all__"
+
+class CaseStudySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CaseStudy
         fields = "__all__"

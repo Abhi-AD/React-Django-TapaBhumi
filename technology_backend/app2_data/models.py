@@ -103,7 +103,7 @@ class JobApplicationStep(models.Model):
         ordering = ["-num"]
 
 
-class JobVacancy(models.Model):
+class Job_Vacancy(models.Model):
     vacancy_title = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     vacancy_des = models.TextField()
@@ -121,4 +121,16 @@ class JobVacancy(models.Model):
         verbose_name_plural = "Vacancies"
         ordering = ["-post_date"]
         
-        
+
+class CaseStudy(models.Model):
+    case_study_image = models.ImageField(upload_to="study_image/%Y/%m/%d")
+    case_study_title = models.CharField(max_length=150)
+    case_study_bio = models.CharField(max_length=255)
+    views_count = models.PositiveBigIntegerField(default=0)
+    case_study_description = models.TextField()
+    post_date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.case_study_title}'
+    
+

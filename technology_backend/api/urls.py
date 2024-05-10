@@ -13,11 +13,12 @@ router.register(r'person', views.PersonView, 'person')
 router.register(r'subscriber', views.SubscriberOrderView, 'subscriber')
 router.register(r'location', views.LocationView, 'location')
 router.register(r'jobapplication', views.JobApplicationStepView, 'jobapplication')
-router.register(r'jobvacancy', views.JobVacancyView, 'jobvacancy')
+router.register(r'jobvacancy', views.Job_VacancyView, 'jobvacancy')
 # router.register(r'job-vacancy/<int:id>', views.JobVacancyDetailView, 'job-vacancy')
 router.register(r'service', views.ServiceView, 'service')
 router.register(r'engagementchoice', views.EngagementChoiceView, 'engagementchoice')
 router.register(r'contact', views.ContactFormSubmissionView, 'contact')
+router.register(r'casestudy', views.CaseStudyView, 'casestudy')
 
 urlpatterns = [
     path('visit/', include(router.urls)),
