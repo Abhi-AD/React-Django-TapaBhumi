@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import CardDesign from './CardDesign';
 import './VisitCard.css';
-import { visitCardSchema } from '../../schema/visitCardSchema';
+import { visitCardSchema } from '../../schema/requirement';
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const VisitCard = () => {

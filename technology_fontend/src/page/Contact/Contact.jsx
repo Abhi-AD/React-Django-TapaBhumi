@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
+import { ContactSchema } from '../../schema/requirement';
+import { yupResolver } from '@hookform/resolvers/yup'
+
 const Contact = () => {
   const [setSelectedCountry] = useState();
   const baseUrl = "http://localhost:3000"
@@ -23,8 +26,9 @@ const Contact = () => {
     setSelectedCountry(event.target.value);
   };
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: defaultValue,
+    resolver: yupResolver(ContactSchema)
   })
 
   const [services, setServices] = useState([]);
@@ -58,7 +62,7 @@ const Contact = () => {
       console.error('Error fetching blogs:', error);
     }
   }
-   useMutation({ mutationFn: createContact })
+  useMutation({ mutationFn: createContact })
 
   const onSubmit = async (data) => {
     const formData = {
@@ -112,12 +116,14 @@ const Contact = () => {
               <div className="form__group">
                 <label>Your full name</label>
                 <input type="text" {...register('name')} placeholder='eg. John Doe' />
+                {errors.name && <p className='error-message'>{errors.name.message}</p>}
                 <hr />
                 <p></p>
               </div>
               <div className="form__group">
                 <label>Your email address</label>
                 <input type='text' {...register('email')} placeholder='eg.you@example.con' />
+                {errors.email && <p className='error-message'>{errors.email.message}</p>}
                 <hr />
                 <p>We won't send you spam.</p>
               </div>
@@ -144,6 +150,7 @@ const Contact = () => {
                   </button>
                 ))}
 
+                {errors.service && <p className='error-message'>{errors.service.message}</p>}
               </div>
               <div className="form__group">
                 <label>What service do you require?</label>
@@ -155,6 +162,7 @@ const Contact = () => {
                       <p className='checkbox'>{service.name}</p>
                     </label>
                   ))}
+                  {errors.workRadio && <p className='error-message'>{errors.workRadio.message}</p>}
                 </div>
 
               </div>
@@ -168,11 +176,13 @@ const Contact = () => {
                   </select>
                   <input type="text" {...register("phone")} placeholder='Enter Your number' />
                 </div>
+                {errors.phone && <p className='error-message'>{errors.phone.message}</p>}
               </div>
               <div className="form__group">
                 <label>Tell us something about your project</label>
                 <div className="textarea">
                   <textarea {...register("message")} placeholder='eg. I am looking to develop this incredible app that...' cols="5" rows="5"></textarea></div>
+                {errors.message && <p className='error-message'>{errors.message.message}</p>}
               </div>
               <button className='contact_button'>send a message</button>
             </form>

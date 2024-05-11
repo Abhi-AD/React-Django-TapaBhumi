@@ -4,9 +4,11 @@ from app3_user.models import (
     Service,
     EngagementChoice,
     ContactFormSubmission,
+    JobApplication,
 )
 
 admin.site.register(Subscriber)
 admin.site.register(Service)
 admin.site.register(EngagementChoice)
 admin.site.register(ContactFormSubmission)
+admin.site.register(JobApplication)

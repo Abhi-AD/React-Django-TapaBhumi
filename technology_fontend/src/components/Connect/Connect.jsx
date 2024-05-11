@@ -35,7 +35,7 @@ const Connect = () => (
                          </p>
                     </div>
                     <div className='connect__row-card-button'>
-                         <Link className='connect__row-card-box'>
+                         <Link className='connect__row-card-box' to={'/join'} >
                               <span>JOIN LEAPFROG</span>
                               <FaArrowRight />
                          </Link>

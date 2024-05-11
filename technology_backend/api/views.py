@@ -17,6 +17,7 @@ from api.serializers import (
     EngagementChoiceSerializer,
     ContactFormSubmissionSerializer,
     CaseStudySerializer,
+    JobApplicationSerializer,
 )
 
 from app1_qrcode.models import VisitCardOrder
@@ -36,6 +37,7 @@ from app3_user.models import (
     Service,
     EngagementChoice,
     ContactFormSubmission,
+    JobApplication
 )
 
 
@@ -82,6 +84,11 @@ class JobApplicationStepView(viewsets.ModelViewSet):
 class Job_VacancyView(viewsets.ModelViewSet):
     serializer_class = Job_VacancySerializer
     queryset = Job_Vacancy.objects.all().order_by("-post_date")
+
+class JobApplicationView(viewsets.ModelViewSet):
+    serializer_class = JobApplicationSerializer
+    queryset = JobApplication.objects.all()
+
 
 class CaseStudyView(viewsets.ModelViewSet):
     serializer_class = CaseStudySerializer

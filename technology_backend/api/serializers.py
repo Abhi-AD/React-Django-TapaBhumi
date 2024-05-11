@@ -16,6 +16,7 @@ from app3_user.models import (
     Service,
     EngagementChoice,
     ContactFormSubmission,
+    JobApplication,
 )
 
 
@@ -111,4 +112,9 @@ class ContactFormSubmissionSerializer(serializers.ModelSerializer):
 class CaseStudySerializer(serializers.ModelSerializer):
     class Meta:
         model = CaseStudy
+        fields = "__all__"
+
+class JobApplicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = JobApplication
         fields = "__all__"
