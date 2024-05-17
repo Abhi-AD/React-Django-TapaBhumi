@@ -1,4 +1,5 @@
-# React-Django-TapaBhumi
+# React Django TapaBhumi
+
 This is a web application built with React for the frontend and Django for the backend.
 
 ## Features
